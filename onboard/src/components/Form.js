@@ -12,7 +12,9 @@ function FormX ({values, errors, touched, status}){
         <Form>
             {touched.name&&errors.name}
             <Field type = "text" name= "name" placeholder ="Name" />
+            {touched.email&&errors.email}
             <Field type = "email" name= "email" placeholder ="Email" />
+            {touched.password&&errors.password}
             <Field type = "text" name= "password" placeholder ="Password" />
             
            <p className = "terms">Terms of Service<br/> By clicking here you agree to forfiet all earthly possessions and dedicate your life to servitude   <Field type = "checkbox" name="terms" checked={values.terms} /></p>
