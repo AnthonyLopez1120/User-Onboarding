@@ -9,6 +9,7 @@ function FormX ({values, errors, touched, status}){
         status && setUsers([...users, status])}, [status, users]);
 
     return(
+        <>
         <Form>
             {touched.name&&errors.name}
             <Field type = "text" name= "name" placeholder ="Name" />
@@ -23,6 +24,13 @@ function FormX ({values, errors, touched, status}){
 
 
         </Form>
+        <div>
+            <h2>The Damned</h2>
+            {users.map(user =>(
+                <p key = {user.email}>{`${user.name} ${user.email}`}</p>
+            ))}
+        </div>
+        </>
     )
 };
 
@@ -51,7 +59,7 @@ const FormikLoginForm = withFormik({
 
       handleSubmit(values, { resetForm, setSubmitting, setStatus, setErrors }) {
         console.log(values);
-        values.email === "alphabeta@kappa.com"
+        values.email === "waffle@syrup.com"
         ? setErrors({email: "That email is already taken."})
     
         : axios
